@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INCREDIBLE BRIDGES</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   
+    <script src="https://kit.fontawesome.com/68fa96ce2a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+     -->
+    <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- foont awsome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    /* font-family: sans-serif; */
+}
+
+h1{
+    text-align: center;
+    font-size: 60px;
+}
+
+.img-gallery{
+    width: 80%;
+    margin: 100px auto 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap:30px;
+}
+.img-gallery img{
+    width: 100%;
+    cursor: pointer;
+}
+#pic2{
+    width: 100%;
+    height: 90%;
+}
+.img-gallery img:hover{
+    transform: scale(0.8) rotate(-15deg);
+    border-radius: 20px;
+    box-shadow: 0 32px 75px rgba(68, 77, 136, 0.2 );
+}
+.full-img{
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0,0, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center; 
+    z-index: 100;
+}
+.full-img  img{
+    width: 90%;
+    max-width: 500px;
+} 
+.full-img span{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.text-area{
+font-size: 70px;
+font-family: roboto;
+text-transform: uppercase;
+font-weight: bold;
+
+}
+.text-area span{
+color: #0c0a0a;
+opacity: 0;
+transform: translate(0,100px) rotate(360deg) scale(0);
+animation: animate 5s forwards;
+
+
+}
+.text-area span{
+display: inline-block;
+}
+.text-area span:nth-of-type(2) {
+animation-delay: .2s;
+}
+.text-area span:nth-of-type(3) {
+animation-delay: .3s;
+}
+.text-area span:nth-of-type(4) {
+animation-delay: .4s;
+}
+.text-area span:nth-of-type(5) {
+animation-delay: .5s;
+}
+.text-area span:nth-of-type(6) {
+animation-delay: .6s;
+}
+.text-area span:nth-of-type(7) {
+animation-delay: .7s;
+}
+.text-area span:nth-of-type(8) {
+animation-delay: .8s;
+}
+@keyframes animate{
+30%{
+  transform: translate(0 -50px) rotate(360deg) scale(1);
+}
+
+60%{
+  transform: translate(0 -20px) rotate(0deg) scale(8);
+}
+100%{
+  transform: translate(0 ) rotate(0deg) scale(1);
+  opacity: 1;
+}
+}
+    </style>
+</head>
+<body>
+  <div class="modal" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">CUSTOMER FEEDBACK FORM</h5>
+               
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+              <p>Thank you for taking time to provide feedback.</p>
+           <label for="fdb"> <h5> would you recommended it to your freinds and colleagues:</h5></label><br>
+           <center><input type="radio"   name="would you recommended it to your freinds and colleagues:">Yes
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio"   name="would you recommended it to your freinds and colleagues:">No</center>
+           
+            <br><br>
+            <h5>Do you have any suggestion to improve our service:</h5>
+           <input type="text" placeholder="Type Something About Our Service" style="width: 465px;"  >
+           <br><br>
+            <p> How satisfied are you with our service:</p>
+
+            <center><i class="bi bi-star"></i>&nbsp;&nbsp;<i class="bi bi-star"></i>&nbsp;&nbsp;<i class="bi bi-star"></i>&nbsp;&nbsp;<i class="bi bi-star"></i>&nbsp;&nbsp;<i class="bi bi-star"></i></center>
+          
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button  class="btn btn-success">Send</button>
+                <button class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-primary bg-white py-4 fixed-top border-1 ">
+    <div class="container-fluid">
+        <a href="index.html" class="navbar-brand d-flex justify-content-between align-item-center order-lg-0 ">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="data:image/png;base64,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" alt="site icon" class="logo mb-2  " >
+            <!-- <span class="text-uppercase fa-lighter ms-2 mt-5">Incredible bridge</span> -->
+        </a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse order-lg-1" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
+          <li class="nav-item px-2 py-2">
+            <a class="nav-link active text-uppercase text-dark" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item px-2 py-2">
+            <a class="nav-link text-uppercase text-dark" href="aboutus.html">About us</a>
+          </li>
+          <li class="nav-item px-2 py-2">
+            <a class="nav-link text-uppercase text-dark" href="Documentryyy.html">Documentry</a>
+          </li>
+     
+          </li>
+          <li class="nav-item px-2 py-2">
+            <a class="nav-link text-uppercase text-dark" href="visit.html">Visit</a>
+          </li>
+          <li class="nav-item px-2 py-2">
+            <a class="nav-link text-uppercase text-dark" href="#">Gallery</a>
+          </li>
+          <li class="nav-item px-2 py-2">
+            <a class="nav-link text-uppercase text-dark" href="contact.html">Contact Us</a>
+          </li>
+          <li class="nav-item px-2 py-2">
+            <a class="nav-link text-uppercase text-dark"   data-bs-toggle="modal" data-bs-target="#myModal"   href="#">Feedback</a>
+          </li>
+        </ul>
+        <form class="d-flex align-item-center">
+            <input class="form-control me-1 radius" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary   " type="submit"><i class="fa fa-search"></i></button>
+          </form>  
+    
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+  <div class="container "   >
+    <div class="banner-text " >
+      <div class="text-area text-center py-5" style="margin-top: 100px;">
+        <span>G</span>
+        <span>a</span>
+        <span>l</span>
+        <span>l</span>
+        <span>e</span>
+        <span>r</span>
+        <span>y</span>
+        
+        
+      </div>
+
+      
+    
+    </div>
+  </div>
+
+
+    
+    <div class="full-img" id="fullImgBox">
+        <img src="img/elephant.jpg" id="fullImg">
+        <span onclick="closefullImg()">X</span>
+    </div>
+    <div class="img-gallery">
+        <img src="g1.jpg" id="pic2" onclick="openfullImg(this.src)">
+       
+        <img src="g2.jpg" id="pic2" onclick="openfullImg(this.src)">
+        <img src="g3.jpg" id="pic2" onclick="openfullImg(this.src)">
+        <img src="g4.jpg" id="pic2" onclick="openfullImg(this.src)">
+        <img src="g5.jpg" id="pic2" onclick="openfullImg(this.src)">
+        <img src="g6.jpg" id="pic2" onclick="openfullImg(this.src)">
+        <img src="g7.jpg" id="pic2" onclick="openfullImg(this.src)" >
+        <img src="g8.jpg" id="pic2" onclick="openfullImg(this.src)">
+
+        <img src="g9.jpg" id="pic2" onclick="openfullImg(this.src)">
+        <img src="g10.jpg" id="pic2" onclick="openfullImg(this.src)">
+        <img src="g11.jpg" id="pic2" onclick="openfullImg(this.src)">
+        <img src="g12.jpg" id="pic2" onclick="openfullImg(this.src)">
+        <img src="g13.jpg" id="pic2" onclick="openfullImg(this.src)">
+        <img src="g14.jpg" id="pic2" onclick="openfullImg(this.src)">
+        <img src="g15.jpg" id="pic2" onclick="openfullImg(this.src)">
+        <img src="g16.jpg" id="pic2" onclick="openfullImg(this.src)">
+        <img src="g17.jpg" id="pic2" onclick="openfullImg(this.src)">
+        <img src="g18.jpg" id="pic2" onclick="openfullImg(this.src)">
+        <img src="g19.jpg" id="pic2" onclick="openfullImg(this.src)">
+        <img src="g20.jpg" id="pic2" onclick="openfullImg(this.src)">
+        <img src="g21.jpg" id="pic2" onclick="openfullImg(this.src)">
+        
+    
+    </div>
+     
+<script>
+        var fullImgBox = document.getElementById("fullImgBox");
+        var fullImg = document.getElementById("fullImg");
+
+        function openfullImg(pic){
+            fullImgBox.style.display = "flex";
+            fullImg.src = pic;
+        }
+function closefullImg(){
+    fullImgBox.style.display = "none";
+}
+
+    </script>
+    <footer class="text-center text-lg-start  text-muted fotclr ">
+        <section class="fotclr">
+          <div class="container text-center text-md-start mt-5">
+            <div class="row mt-3">
+  
+              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 mt-3  ">
+  
+                <h6 class="text-uppercase fw-bold mb-4">
+                  <i class="fa fa-star me-3"></i>Incredible Bridges&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-star me-3"></i>
+                </h6>
+                <p>
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut qui reiciendis, dolore unde esse sed cupiditate fugit natus sapiente quidem dolorum. Perferendis dolore id possimus obcaecati iste error iure corrupti.
+                </p>
+              </div>
+  
+              <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 mt-3 ">
+  
+                <h6 class="text-uppercase fw-bold mb-4  hed ">
+                  Site Map
+                </h6>
+                <p>
+                  <a href="#!" class="text btn ">Home</a>
+                </p>
+                <p>
+                  <a href="#!" class="text btn ">About Us</a>
+                </p>
+                <p>
+                  <a href="#!" class="text btn ">Documentery</a>
+                </p>
+                <p>
+                  <a href="#!" class="text btn ">Gallery</a>
+                </p>
+                <p>
+                  <a href="#!" class="text btn ">Contact Us</a>
+                </p>
+              </div>
+  
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4  mt-3 ">
+  
+                <h6 class="text-uppercase fw-bold mb-4">
+                  Social Networks
+                </h6>
+                <p>
+                  <a href="#!" class="text btn "><i class="bi bi-facebook" ></i>Facebook </a>
+                </p>
+                <p>
+                  <a href="#!" class="text btn "> <i class="bi bi-instagram" ></i>Instagram </a>
+                </p>
+                <p>
+                  <a href="#!" class="text btn "><i class="bi bi-google" ></i>Google </a>
+                </p>
+                <p>
+                  <a href="#!" class="text btn "> <i class="bi bi-youtube" ></i>Youtube</a>
+                </p>
+                <p>
+                  <a href="#!" class="text btn "> <i class="bi bi-twitter" ></i>Twitter</a>
+                </p>
+              </div>
+  
+              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 mt-3 ">
+  
+                <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                <p><i class="fas fa-home me-3"></i>Karachi,Pakistan.</p><br>
+                <p>
+                  <i class="fas fa-envelope me-3"></i>
+                  info@example.com
+                </p><br>
+                <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p><br>
+                <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p><br>
+              </div>
+  
+            </div>
+  
+          </div>
+        </section>
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.09);">
+          © 2023 Copyright:
+          <a class="text-reset fw-bold" href="#">www.incrediblebridges.com</a>
+        </div>
+  
+      </footer>
+  
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+  </body>
+  </html>
+</body>
+</html>

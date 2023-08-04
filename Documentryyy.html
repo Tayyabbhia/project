@@ -1,0 +1,527 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INCREDIBLE BRIDGES</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- foont awsome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .title h2::before{
+    position: absolute;
+    content: "";
+    width: 4px;
+    height: 50px;
+    background-color: blue;
+    left: -10px;
+    top: 40px;
+    transform: translate(-50%);
+}
+
+.lon h2::before{
+    position: absolute;
+    content: "";
+    width: 4px;
+    height: 50px;
+    background-color: blue;
+    left: -10px;
+    top: 10px;
+    transform: translate(-50%);
+}
+
+.active-filter-btn{
+    background-color: blue!important;
+    color: #ec0404 ;
+    border-color: blue!important;
+}
+
+.filter-button-group .btn:hover{
+    color: #fff!important;
+}
+
+.text-area{
+font-size: 70px;
+font-family: roboto;
+text-transform: uppercase;
+font-weight: bold;
+
+}
+.text-area span{
+color: #0c0a0a;
+opacity: 0;
+transform: translate(0,100px) rotate(360deg) scale(0);
+animation: animate 5s forwards;
+
+
+}
+.text-area span{
+display: inline-block;
+}
+.text-area span:nth-of-type(2) {
+animation-delay: .2s;
+}
+.text-area span:nth-of-type(3) {
+animation-delay: .3s;
+}
+.text-area span:nth-of-type(4) {
+animation-delay: .4s;
+}
+.text-area span:nth-of-type(5) {
+animation-delay: .5s;
+}
+.text-area span:nth-of-type(6) {
+animation-delay: .6s;
+}
+.text-area span:nth-of-type(7) {
+animation-delay: .7s;
+}
+.text-area span:nth-of-type(8) {
+animation-delay: .8s;
+}
+@keyframes animate{
+30%{
+  transform: translate(0 -50px) rotate(360deg) scale(1);
+}
+
+60%{
+  transform: translate(0 -20px) rotate(0deg) scale(8);
+}
+100%{
+  transform: translate(0 ) rotate(0deg) scale(1);
+  opacity: 1;
+}
+}
+
+
+    </style>
+</head>
+<body>
+  <div class="modal" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">CUSTOMER FEEDBACK FORM</h5>
+               
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+              <p>Thank you for taking time to provide feedback.</p>
+           <label for="fdb"> <h5> would you recommended it to your freinds and colleagues:</h5></label><br>
+           <center><input type="radio"   name="would you recommended it to your freinds and colleagues:">Yes
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio"   name="would you recommended it to your freinds and colleagues:">No</center>
+           
+            <br><br>
+            <h5>Do you have any suggestion to improve our service:</h5>
+           <input type="text" placeholder="Type Something About Our Service" style="width: 465px;"  >
+           <br><br>
+            <p> How satisfied are you with our service:</p>
+
+            <center><i class="bi bi-star"></i>&nbsp;&nbsp;<i class="bi bi-star"></i>&nbsp;&nbsp;<i class="bi bi-star"></i>&nbsp;&nbsp;<i class="bi bi-star"></i>&nbsp;&nbsp;<i class="bi bi-star"></i></center>
+          
+
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button  class="btn btn-success">Send</button>
+                <button class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-primary bg-white py-4 fixed-top border-1 ">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand d-flex justify-content-between align-item-center order-lg-0 ">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="data:image/png;base64,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" alt="site icon" class="logo mb-2  " >
+                <!-- <span class="text-uppercase fa-lighter ms-2 mt-5">Incredible bridge</span> -->
+            </a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse order-lg-1 bg-white" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
+              <li class="nav-item px-2 py-2">
+                <a class="nav-link active text-uppercase text-dark" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item px-2 py-2">
+                <a class="nav-link text-uppercase text-dark" href="aboutus.html">About us</a>
+              </li>
+               <li class="nav-item px-2 py-2">
+                <a class="nav-link text-uppercase text-dark" href="Documentryyy.html">Documentry</a>
+              </li>
+         
+              </li>
+              <li class="nav-item  px-2 py-2">
+                <li class="nav-item px-2 py-2">
+                  <a class="nav-link text-uppercase text-dark" href="visit.html">Visit</a>
+                </li>
+              <li class="nav-item px-2 py-2">
+                <a class="nav-link text-uppercase text-dark" href="gallery.html">Gallery</a>
+              </li>
+              <li class="nav-item px-2 py-2">
+                <a class="nav-link text-uppercase text-dark" href="contact.html">Contact Us</a>
+              </li>
+              <li class="nav-item px-2 py-2">
+                <a class="nav-link text-uppercase text-dark"   data-bs-toggle="modal" data-bs-target="#myModal"   href="#">Feedback</a>
+              </li>
+            </ul>
+            <form class="d-flex align-item-center">
+                <input class="form-control me-1 radius" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-primary   " type="submit"><i class="fa fa-search"></i></button>
+              </form>  
+        
+          </div>
+        </div>
+      </nav>
+
+      
+
+<hr>
+
+
+    <!-- navbarend -->
+
+    <div class="container "   >
+      <div class="banner-text " >
+        <div class="text-area text-center py-5" style="margin-top: 100px;">
+          <span>D</span>
+          <span>o</span>
+          <span>c</span>
+          <span>u</span>
+          <span>m</span>
+          <span>e</span>
+          <span>n</span>
+          <span>t</span>
+          <span>a</span>
+          <span>r</span>
+          <span>y</span>
+          
+        </div>
+
+        
+      
+      </div>
+    </div>
+
+     <!-- historical section   -->
+     <div class="container mb-3  ">
+        <div class="row py-5">
+            <div class="d-flex flex-wrap justify-content-center mt-5 filter-button-group">
+                <button type="button" class="btn m-2 text-white active-filter-btn " data-filter="*" style="width: 200px;">All</button>
+                <button type="button" class="btn m-2 text-dark btn-primary" data-filter=".his" style="width: 200px;">Histroical</button>
+                <button type="button" class="btn m-2 text-dark btn-primary" data-filter=".long" style="width: 200px;">longest and tallest</button>
+                <button type="button" class="btn m-2 text-dark btn-primary" data-filter=".mod" style="width: 200px;">Modern</button>
+            </div>
+        
+
+        <div class="documanteri">
+      <div class="title his"><h2 class="py-5 text-center text-uppercase position-relative ">Histroical Bridge</h2></div>  
+        <div class="row py-5 his">
+                    <h4 class="display-4 text-uppercase">Bosphorus Bridge in Istanbul, Turkey</h4>
+                    <hr>
+                 <div class="col-lg-6"><p class="lead  ">A bridge is a structure built to span a physical obstacle (such as a body of water, valley, road, or rail) without blocking the way underneath. It is constructed for the purpose of providing passage over the obstacle, which is usually something that is otherwise difficult or impossible to cross. There are many different designs of bridges, each serving a particular purpose and applicable to different situations. Designs of bridges vary depending on factors such as the function of the bridge, the nature of the terrain where the bridge is constructed and anchored, and the material used to make it, and the funds available to build it.
+
+                   <span class="fw-bolder  bg-primary-subtle text-emphasis-primary"> The earliest bridges were likely made with fallen trees and stepping stones. The Neolithic people built boardwalk bridges across marshland. The Arkadiko Bridge (dating from the 13th century BC, in the Peloponnese) is one of the oldest arch bridges still in existence and use.</span></p>
+                    
+                </div>
+                 <div class="col-lg-6">
+                    <img src="bridge1.JPG" alt="" class="img-fluid  " style="width: 100%;" >
+                </div>
+                    <hr class="my-4">
+                    
+       <a href="" class="btn btn-primary"    style="width: 200px;" >Read more</a>             
+                
+            </div>
+            <div class="row py-5">
+                <h4 class="display-4 text-uppercase">Suspension bridge</h4>
+                <hr>
+             <div class="col-lg-6"><p class="lead  ">A suspension bridge is a type of bridge in which the deck is hung below suspension cables on vertical suspenders. The first modern examples of this type of bridge were built in the early 1800s.[5][6] Simple suspension bridges, which lack vertical suspenders, have a long history in many mountainous parts of the world.
+
+              Besides the bridge type most commonly called suspension bridges, covered in this article, there are other types of suspension bridges. The type covered here has cables suspended between towers, with vertical suspender cables that transfer the live and dead loads of the deck below, upon which traffic crosses. This arrangement allows the deck to be level or to arc upward for additional clearance. Like other suspension bridge types, this type often is constructed without the use of falsework.
+
+               <span class="fw-bolder  bg-primary-subtle text-emphasis-primary"> The earliest bridges were likely made with fallen trees and stepping stones. The Neolithic people built boardwalk bridges across marshland. The Arkadiko Bridge (dating from the 13th century BC, in the Peloponnese) is one of the oldest arch bridges still in existence and use.</span></p>
+                
+            </div>
+             <div class="col-lg-6">
+                <img src="his 1.jpg" alt="" class="img-fluid  " style="width: 100%;" >
+            </div>
+                <hr class="my-4">
+                
+   <a href="" class="btn btn-primary"  style="width: 200px;" >Read more</a>             
+            
+        </div>
+
+
+
+        <div class="row py-5  his">
+                <h4 class="display-4 text-uppercase">Charles Bridge</h4>
+                <hr>
+             <div class="col-lg-6"><p class="lead  ">Charles Bridge (Czech: Karlův most [ˈkarluːf ˈmost] (listen)) is a medieval stone arch bridge that crosses the Vltava river in Prague, Czech Republic. Its construction started in 1357 under the auspices of King Charles IV, and finished in the early 15th century.[2] The bridge replaced the old Judith Bridge built 1158–1172 that had been badly damaged by a flood in 1342. This new bridge was originally called Stone Bridge (Kamenný most) or Prague Bridge (Pražský most), but has been referred to as "Charles Bridge" since 1870.[2]
+
+              As the only means of crossing the river Vltava until 1841, Charles Bridge was the most important connection between Prague Castle and the city's Old Town and adjacent areas. This land connection made Prague important as a trade route between Eastern and Western Europe.
+              
+              The bridge is 516 metres (1,693 ft) long and nearly 10 metres (33 ft) wide. Following the example of the Stone Bridge in Regensburg, it was built as a bow bridge with 16 arches shielded by ice guards.[2] It is protected by three bridge towers, two on the Lesser Quarter side (including the Malá Strana Bridge Tower) and one on the Old Town side, the Old Town Bridge Tower. The bridge is decorated by a continuous alley of 30 statues and statuaries, most of them baroque-style, originally erected around 1700, but now all have been replaced by replicas.
+              
+              The bridge is currently undergoing a twenty-year process of structural inspections, restoration, and repairs. The process started in late 2019, and is expected to cost 45–60 million CZK (US$1.9–2.6 million).[3][4]
+
+               <span class="fw-bolder  bg-primary-subtle text-emphasis-primary"> The earliest bridges were likely made with fallen trees and stepping stones. The Neolithic people built boardwalk bridges across marshland. The Arkadiko Bridge (dating from the 13th century BC, in the Peloponnese) is one of the oldest arch bridges still in existence and use.</span></p>
+                
+            </div>
+             <div class="col-lg-6">
+                <img src="his 2.jpg" alt="" class="img-fluid  " style="width: 100%;" >
+            </div>
+                <hr class="my-4">
+                
+   <a href="" class="btn btn-primary" style="width: 200px;">Read more</a>             
+            
+        </div>
+
+        <div class="row py-5 his">
+                <h4 class="display-4 text-uppercase">The Eads Bridge</h4>
+                <hr>
+             <div class="col-lg-6"><p class="lead  ">The Eads Bridge is a combined road and railway bridge over the Mississippi River connecting the cities of St. Louis, Missouri and East St. Louis, Illinois. It is located on the St. Louis riverfront between Laclede's Landing, to the north, and the grounds of the Gateway Arch, to the south. The bridge is named for its designer and builder, James Buchanan Eads. Work on the bridge began in 1867, and it was completed in 1874. The Eads Bridge was the first bridge across the Mississippi south of the Missouri River. Earlier bridges were located north of the Missouri, where the Mississippi is smaller. None of the earlier bridges survive, which means that the Eads Bridge is also the oldest bridge on the river.
+
+               <span class="fw-bolder  bg-primary-subtle text-emphasis-primary"> The earliest bridges were likely made with fallen trees and stepping stones. The Neolithic people built boardwalk bridges across marshland. The Arkadiko Bridge (dating from the 13th century BC, in the Peloponnese) is one of the oldest arch bridges still in existence and use.</span></p>
+                
+            </div>
+             <div class="col-lg-6">
+                <img src="his 3.jpg" alt="" class="img-fluid  " style="width: 100%;" >
+            </div>
+                <hr class="my-4">
+                
+   <a href="" class="btn btn-primary" style="width: 200px;">Read more</a>             
+            
+        </div>
+
+        <!-- longest -->
+        <div class="lon long"><h2 class="py-3  text-center text-uppercase position-relative " >longest and tallest
+
+        </h2></div>
+        <div class="row py-5 long">
+                <h4 class="display-4 text-uppercase">Donghai Bridge</h4>
+                <hr>
+             <div class="col-lg-6"><p class="lead  ">A bridge is a structure built to span a physical obstacle (such as a body of water, valley, road, or rail) without blocking the way underneath. It is constructed for the purpose of providing passage over the obstacle, which is usually something that is otherwise difficult or impossible to cross. There are many different designs of bridges, each serving a particular purpose and applicable to different situations. Designs of bridges vary depending on factors such as the function of the bridge, the nature of the terrain where the bridge is constructed and anchored, and the material used to make it, and the funds available to build it.
+
+               <span class="fw-bolder  bg-primary-subtle text-emphasis-primary"> The earliest bridges were likely made with fallen trees and stepping stones. The Neolithic people built boardwalk bridges across marshland. The Arkadiko Bridge (dating from the 13th century BC, in the Peloponnese) is one of the oldest arch bridges still in existence and use.</span></p>
+                
+            </div>
+             <div class="col-lg-6">
+                <img src="Donghai_Bridge.jpg" alt="" class="img-fluid  " style="width: 100%;" >
+            </div>
+                <hr class="my-4">
+                
+   <a href="" class="btn btn-primary" style="width: 200px;">Read more</a>             
+            
+        </div>
+
+        <div class="row py-5 long">
+            <h4 class="display-4 text-uppercase">Millau Viaduct</h4>
+            <hr>
+         <div class="col-lg-6"><p class="lead  ">The Millau Viaduct (French: Viaduc de Millau, IPA: [vja.dyk də mi.jo]) is a multispan cable-stayed bridge completed in 2004 across the gorge valley of the Tarn near (west of) Millau in the Aveyron department in the Occitanie Region, in Southern France. The design team was led by engineer Michel Virlogeux and English architect Norman Foster.[2][3][4] As of September 2020, it is the tallest bridge in the world, having a structural height of 336.4 metres (1,104 ft).[1]
+
+           <span class="fw-bolder  bg-primary-subtle text-emphasis-primary"> The earliest bridges were likely made with fallen trees and stepping stones. The Neolithic people built boardwalk bridges across marshland. The Arkadiko Bridge (dating from the 13th century BC, in the Peloponnese) is one of the oldest arch bridges still in existence and use.</span></p>
+            
+        </div>
+         <div class="col-lg-6">
+            <img src="long2.jpg" alt="" class="img-fluid  " style="width: 100%;" >
+        </div>
+            <hr class="my-4">
+            
+<a href="" class="btn btn-primary" style="width: 200px;">Read more</a>             
+        
+    </div>
+
+    <div class="row py-5 long">
+        <h4 class="display-4 text-uppercase">Vasco da Gama Bridge</h4>
+        <hr>
+     <div class="col-lg-6"><p class="lead  ">The Vasco da Gama Bridge (Portuguese: Ponte Vasco da Gama; pronounced [ˈpõtɨ ˈvaʃku ðɐ ˈɣɐmɐ]) is a cable-stayed bridge flanked by viaducts that spans the Tagus River in Parque das Nações in Lisbon, the capital of Portugal. It is the second longest bridge in Europe, after the Crimean Bridge,[7] and the longest one in the European Union. It was built to alleviate the congestion on Lisbon's 25 de Abril Bridge, and eliminate the need for traffic between the country's northern and southern regions to pass through the capital city.[8]
+
+      Construction began in February 1995; the bridge was opened to traffic on 29 March 1998, just in time for Expo 98, the World's Fair that celebrated the 500th anniversary of the discovery by Vasco da Gama of the sea route from Europe to India.
+
+       <span class="fw-bolder  bg-primary-subtle text-emphasis-primary"> The earliest bridges were likely made with fallen trees and stepping stones. The Neolithic people built boardwalk bridges across marshland. The Arkadiko Bridge (dating from the 13th century BC, in the Peloponnese) is one of the oldest arch bridges still in existence and use.</span></p>
+        
+    </div>
+     <div class="col-lg-6">
+        <img src="long3.jpg" alt="" class="img-fluid  " style="width: 100%;" >
+    </div>
+        <hr class="my-4">
+        
+<a href="" class="btn btn-primary" style="width: 200px;">Read more</a>             
+    
+</div>
+
+                <!-- modern -->
+                <div class="lon  mod"><h2 class="py-3 text-center text-uppercase position-relative ">Modern bridge</h2></div>  
+                <div class="row py-5 mod">
+                    <h4 class="display-4 text-uppercase">tower bridge</h4>
+                    <hr>
+                 <div class="col-lg-6"><p class="lead  ">Tower Bridge is a Grade I listed combined bascule and suspension bridge in London, built between 1886 and 1894, designed by Horace Jones and engineered by John Wolfe Barry with the help of Henry Marc Brunel.[1] It crosses the River Thames close to the Tower of London and is one of five London bridges owned and maintained by the Bridge House Estates, a charitable trust founded in 1282. The bridge was constructed to give better access to the East End of London, which had expanded its commercial potential in the 19th century. The bridge was opened by Edward, Prince of Wales and Alexandra, Princess of Wales in 1894.
+            
+                   <span class="fw-bolder  bg-primary-subtle text-emphasis-primary"> The earliest bridges were likely made with fallen trees and stepping stones. The Neolithic people built boardwalk bridges across marshland. The Arkadiko Bridge (dating from the 13th century BC, in the Peloponnese) is one of the oldest arch bridges still in existence and use.</span></p>
+                    
+                </div>
+                 <div class="col-lg-6">
+                    <img src="modern 1.jpg" alt="" class="img-fluid  " style="width: 100%;" >
+                </div>
+                    <hr class="my-4">
+                    
+            <a href="" class="btn btn-primary" style="width: 200px;">Read more</a>             
+                
+            </div>
+            
+                <div class="row py-5 mod">
+                    <h4 class="display-4 text-uppercase">Brooklyn Bridge</h4>
+                    <hr>
+                 <div class="col-lg-6"><p class="lead  ">The Brooklyn Bridge is a hybrid cable-stayed/suspension bridge in New York City, spanning the East River between the boroughs of Manhattan and Brooklyn. Opened on May 24, 1883, the Brooklyn Bridge was the first fixed crossing of the East River. It was also the longest suspension bridge in the world at the time of its opening, with a main span of 1,595.5 feet (486.3 m) and a deck 127 ft (38.7 m) above mean high water. The span was originally called the New York and Brooklyn Bridge or the East River Bridge but was officially renamed the Brooklyn Bridge in 1915.
+            
+                   <span class="fw-bolder  bg-primary-subtle text-emphasis-primary"> The earliest bridges were likely made with fallen trees and stepping stones. The Neolithic people built boardwalk bridges across marshland. The Arkadiko Bridge (dating from the 13th century BC, in the Peloponnese) is one of the oldest arch bridges still in existence and use.</span></p>
+                    
+                </div>
+                 <div class="col-lg-6">
+                    <img src="modern 2.jpg" alt="" class="img-fluid  " style="width: 100%;" >
+                </div>
+                    <hr class="my-4">
+                    
+            <a href="" class="btn btn-primary" style="width: 200px;">Read more</a>             
+                
+            </div>                
+            
+            <div class="long"><h2 class="py-3 text-center text-uppercase position-relative ">modern bridge</h2></div>  
+            <div class="row py-5 mod">
+                <h4 class="display-4 text-uppercase">Sydney Harbour Bridge</h4>
+                <hr>
+             <div class="col-lg-6"><p class="lead  ">The Sydney Harbour Bridge is a steel through arch bridge in Sydney, spanning Sydney Harbour from the central business district (CBD) to the North Shore. The view of the bridge, the harbour, and the nearby Sydney Opera House is widely regarded as an iconic image of Sydney, and of Australia itself. Nicknamed "The Coathanger" because of its arch-based design, the bridge carries rail, vehicular, bicycle and pedestrian traffic.[1][2]
+        
+               <span class="fw-bolder  bg-primary-subtle text-emphasis-primary"> The earliest bridges were likely made with fallen trees and stepping stones. The Neolithic people built boardwalk bridges across marshland. The Arkadiko Bridge (dating from the 13th century BC, in the Peloponnese) is one of the oldest arch bridges still in existence and use.</span></p>
+                
+            </div>
+             <div class="col-lg-6">
+                <img src="modern 3.jpg" alt="" class="img-fluid  " style="width: 100%;" >
+            </div>
+                <hr class="my-4">
+                
+        <a href="" class="btn btn-primary" style="width: 200px;">Read more</a>             
+            
+        </div>                
+
+                
+
+
+
+
+    </div>
+
+    
+        </div>
+
+    </div>
+    </div>
+    <!-- footer -->
+
+    <footer class="text-center text-lg-start  text-muted fotclr ">
+      <section class="fotclr">
+        <div class="container text-center text-md-start mt-5">
+          <div class="row mt-3">
+
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 mt-3  ">
+
+              <h6 class="text-uppercase fw-bold mb-4">
+                <i class="fa fa-star me-3"></i>Incredible Bridges&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-star me-3"></i>
+              </h6>
+              <p>
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut qui reiciendis, dolore unde esse sed cupiditate fugit natus sapiente quidem dolorum. Perferendis dolore id possimus obcaecati iste error iure corrupti.
+              </p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 mt-3 ">
+
+              <h6 class="text-uppercase fw-bold mb-4  hed ">
+                Site Map
+              </h6>
+              <p>
+                <a href="#!" class="text btn ">Home</a>
+              </p>
+              <p>
+                <a href="#!" class="text btn ">About Us</a>
+              </p>
+              <p>
+                <a href="#!" class="text btn ">Documentery</a>
+              </p>
+              <p>
+                <a href="#!" class="text btn ">Gallery</a>
+              </p>
+              <p>
+                <a href="#!" class="text btn ">Contact Us</a>
+              </p>
+            </div>
+
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4  mt-3 ">
+
+              <h6 class="text-uppercase fw-bold mb-4">
+                Social Networks
+              </h6>
+              <p>
+                <a href="#!" class="text btn "><i class="bi bi-facebook" ></i>Facebook </a>
+              </p>
+              <p>
+                <a href="#!" class="text btn "> <i class="bi bi-instagram" ></i>Instagram </a>
+              </p>
+              <p>
+                <a href="#!" class="text btn "><i class="bi bi-google" ></i>Google </a>
+              </p>
+              <p>
+                <a href="#!" class="text btn "> <i class="bi bi-youtube" ></i>Youtube</a>
+              </p>
+              <p>
+                <a href="#!" class="text btn "> <i class="bi bi-twitter" ></i>Twitter</a>
+              </p>
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 mt-3 ">
+
+              <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+              <p><i class="fas fa-home me-3"></i>Karachi,Pakistan.</p><br>
+              <p>
+                <i class="fas fa-envelope me-3"></i>
+                info@example.com
+              </p><br>
+              <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p><br>
+              <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p><br>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+      <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.09);">
+        © 2023 Copyright:
+        <a class="text-reset fw-bold" href="#">www.incrediblebridges.com</a>
+      </div>
+
+    </footer>
+ <!-- custom jquery -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+ <!-- isotops cdn -->
+ <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+<!-- custom js -->
+<script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+</body>
+</html>

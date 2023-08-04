@@ -1,0 +1,36 @@
+
+.logo{
+  width: 170px;
+  height: 71px;
+}        
+
+  .navbar{
+box-shadow:0 3px 9px 3px rgba(0, 0,0, 0.1)
+}
+.nav-item{
+border-bottom: 0.5px solid rgba(15, 3, 49, 0.05);
+}
+.navbar-brand span{
+letter-spacing: 2px;
+font-family: var(--lg-font);
+}
+
+  .radius{
+      border-radius: 50px;
+      width: 300px;
+  }
+  .navbar{
+    height: 100px;
+  }
+
+
+  /* footer */
+.fotclr{
+    background-color: rgb(0, 162, 255);
+}
+/* #subscribe{
+  background-color:rgba(0, 0,0, 0.1);
+} */
+.eng{
+  background-color: rgba(0, 0,0, 0.09);
+}
